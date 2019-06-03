@@ -1,0 +1,34 @@
+<div class="grid">
+  <div class="input-group">
+      <div class="main grid__item small--one-whole medium-up--one-half">
+        <img src="{{ section.settings.image | img_url: 'original' }}">
+      </div>
+      <div class="main grid__item small--one-whole medium-up--one-half">
+        <div class="rte about">{{ section.settings.text }}</div>
+      </div>
+  </div>
+</div>
+{% schema %}
+{
+    "name": "About",
+    "settings": [
+       {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+       },
+       {
+          "type": "textarea",
+          "id": "text",
+          "label": "Content",
+          "default": "About Content"
+       }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

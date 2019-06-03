@@ -1,0 +1,58 @@
+<div class="page-width">
+  <div class="section-header text-center">
+    <h1>{{page.title}}</h1>
+  </div>
+  {% section 'faq' %}
+</div>
+<style>
+.faqpage {display: inline-block;margin: 0 auto;max-width: 1000px;width: 100%; text-align: left;}
+.accord-sec {display: inline-block;width: 100%;border: 1px solid rgb(221, 221, 221);margin-bottom: 12px;}  
+.accordion {cursor:pointer;margin: 0;padding: 11px 21px;text-decoration: none;color: rgb(0, 0, 0);font-size: 1em;position: relative;text-align: left;}
+
+.faqpage div.accordionContent {
+    max-width: 100%;
+    padding: 0px 21px 11px;
+    margin-top: 0;
+    font-size: .9em;
+    line-height: 1.5em;
+}
+
+</style>
+<script type="text/javascript" src="{{ 'jquery_accordion.js' | asset_url }}"></script>
+<script type="text/javascript">
+// $(document).ready(function() {
+// $('.accordion').accordion({
+// defaultOpen: 'section1',
+// cookieName: 'accordion_nav'
+// });
+// });
+  
+  
+$(document).ready(function() {	 
+	$('.accordionButton').click(function() {
+		$('.accordionButton').removeClass('on');
+       // $('.accordionButton .icon_toggle').text('+');		  
+	 	$('.accordionContent').slideUp('normal');
+   
+		if($(this).next().is(':hidden') == true) {
+			
+			$(this).addClass('on');			  
+ 			$(this).next().slideDown('normal');
+//             $(this).find('.icon_toggle').text('-');
+		 } 
+		  
+	 });
+	  
+	
+// 	$('.accordionButton').mouseover(function() {
+// 		$(this).addClass('over');
+		
+// 	}).mouseout(function() {
+// 		$(this).removeClass('over');									
+// 	});
+	//$('.accordionContent').hide();
+
+});
+  
+  
+</script>

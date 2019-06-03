@@ -1,0 +1,12 @@
+<form action="/search" method="get" class="search small--hide" role="search">
+  <input class="search-header__input search__input"
+    type="search"
+    name="q"
+    placeholder="{{ 'general.search.placeholder' | t }}"
+    aria-label="{{ 'general.search.placeholder' | t }}">
+  <button class="search-header__submit search__submit btn--link site-header__icon" type="submit">
+   <img src="{{'icon-1.png' | asset_url }}"/>
+    <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
+  </button>
+</form>
+<a href="/search" class="medium-up--hide site-header__icon"><img src="{{'icon-1.png' | asset_url }}"/></a>

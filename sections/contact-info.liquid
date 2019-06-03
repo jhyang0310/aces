@@ -1,0 +1,65 @@
+<div class="contact_info_block">
+  <img src="{{ section.settings.image | img_url: 'original' }}">
+</div>
+<div class="grid ">
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      <div class="contact_info_block grid__item small--one-whole medium-up--one-whole">
+        <span class="inline-block icon location">
+            <img src="{{ block.settings.icon | img_url: '20x' }}">
+        </span>
+        <span class="inline-block">
+          {% if forloop.first %}
+          <h2>{{ block.settings.title }}</h2>
+          {% else %}
+          <h4>{{ block.settings.title }}</h4>
+          {% endif %}
+          <p class="text contact">{{ block.settings.text }}</p>
+        </span>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Contact Information",
+    "settings": [
+
+       {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+       }
+],
+  "blocks": [
+    {
+      "type": "Contact_block",
+      "name": "Contact Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon IMage"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Content"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

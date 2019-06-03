@@ -1,0 +1,79 @@
+<div class="loogbook_gal">
+  <div class=" gallery_slider">
+	{% for block in section.blocks %}
+    <div class="">
+  		{% if block.settings.image != blank %}
+ 		 <a href="{{block.settings.image | img_url: "original"}}">
+           <img src="{{block.settings.image | img_url: "original"}}"/>
+  		 </a>
+  		{% endif %}
+    </div>
+  	{% endfor %}
+  </div>
+</div>
+<style>
+  .gallery_slider button.slick-arrow:before{content:" ";}
+  .gallery_slider button.slick-prev.slick-arrow {background-position: top;background: url(https://cdn.shopify.com/s/files/1/2339/5487/files/right-Arrow.png?7697);background-repeat: no-repeat;background-size: contain;width: 60px;height: 60px;outline:0px;left: -120px;transform: rotate(-180deg);top: calc(50% - 30px);}
+  .gallery_slider button.slick-next.slick-arrow {background-position: top;background: url(https://cdn.shopify.com/s/files/1/2339/5487/files/right-Arrow.png?7697);background-repeat: no-repeat;background-size: contain;width: 60px;height: 60px;right:-120px;outline:0px;  }
+  
+</style>
+
+<script>
+$(document).ready(function(){
+  $('.gallery_slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      infinite: false,
+      loop: false,
+      swipe: true 
+  });
+
+	/* Assign smallest height */
+    var maxHeight = 0;var minheight = 0;
+    $(".gallery_slider div").each(function(){
+       if ($(this).find('img').height() > maxHeight) { 
+         maxHeight = $(this).find('img').height();    
+       }else{
+         minheight = $(this).find('img').height(); 
+       }
+    });
+  if(minheight > 200){
+    $(".gallery_slider div img").height(minheight);   
+  }
+});
+</script>
+
+{% comment %}
+    {% cycle 'one-half', 'one-half', 'one-third','one-third','one-third' %}
+    <script>
+    $('.loogbook_gal a').simpleLightbox();
+    </script>
+{% endcomment %}
+
+{% schema %}
+  {
+    "name": "LookBook Gallery",
+    "settings": [],
+	  "blocks": [
+    {
+      "type": "block",
+      "name": "image",
+      "settings": [
+       		{
+				"type":"image_picker",
+				"id":"image",
+				"label":"Image"
+			}
+        
+      ]
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

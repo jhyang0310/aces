@@ -1,0 +1,8 @@
+@font-face {font-family: bebasbook;src: url(BebasNeue-Book.otf);}
+@font-face {font-family: bebasneue;src: url(AvenirNextLTPro-CondRegular.otf);font-weight:400;}
+@font-face {font-family: bebasneue;src: url(AvenirNextCondensed-Medium.ttf);font-weight:500;}
+@font-face {font-family: bebasneue;src: url(BebasNeue-Thin.otf);font-weight:100;}
+
+body * {
+    font-family: bebasbook !important;
+}
